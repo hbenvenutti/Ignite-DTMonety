@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Modal from 'react-modal';
 import { Container } from './styles';
 
@@ -6,6 +5,8 @@ interface NewTransactionModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
 }
+
+Modal.setAppElement('#root');
 
 export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModalProps) {
 
