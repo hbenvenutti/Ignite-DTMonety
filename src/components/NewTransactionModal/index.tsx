@@ -31,10 +31,19 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
   
   // -------------------------------------------------------------------------------------------- //
   
-  function createNewTransaction(event: FormEvent) {
+  function setDefaultValues() {
+    setTitle('');
+    setCategory('');
+    setType('deposit');
+    setAmount(0);
+  }
+
+  async function createNewTransaction(event: FormEvent) {
     event.preventDefault();
 
-    createTransaction({title, amount, category, type});
+    await createTransaction({title, amount, category, type});
+
+    setDefaultValues();
 
     onRequestClose();
   }
